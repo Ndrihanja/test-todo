@@ -11,9 +11,11 @@ let todos: Todo[] = [
 
 export class TodoService {
 
+    private static nextId = 4;
+
     public static createTodo(data: CreateTodoDto): Todo {
         const newTodo: Todo = {
-            id: data.id,
+            id: TodoService.nextId++,
             title: data.title,
             description: data.description,
             status: TodoStatus.PENDING
